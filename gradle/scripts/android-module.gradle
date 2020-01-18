@@ -1,3 +1,4 @@
+apply from: "$rootDir/gradle/scripts/testing.gradle"
 
 android {
     compileSdkVersion compileSdk_version
@@ -6,8 +7,6 @@ android {
         targetSdkVersion targetSdk_version
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
@@ -29,4 +28,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation library.kotlin
 }
