@@ -13,14 +13,16 @@ import retrofit2.converter.gson.GsonConverterFactory
 private val url = "leha.net"
 
 val networkModule = module {
-    val gson = GsonBuilder()
-        .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
-        .create()
-    single<Gson> { gson }
+    single<Gson> {
+        GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
+            .create()
+    }
 
-    val retrofit = Retrofit.Builder()
-        .baseUrl(url)
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .build()
-    single<Retrofit> { retrofit }
+    single<Retrofit> {
+        Retrofit.Builder()
+            .baseUrl(url)
+            .addConverterFactory(GsonConverterFactory.create(get()))
+            .build()
+    }
 }
