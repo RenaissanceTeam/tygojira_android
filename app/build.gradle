@@ -6,7 +6,6 @@ dependencies {
     implementation library.multidex
     implementation library.appCompat
     implementation library.koin
-    implementation library.serialization
 }
 
 apply plugin: 'kotlin-android-extensions'

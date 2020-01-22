@@ -18,6 +18,8 @@ ext {
             mockitoKotlin                : ("com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin_version"),
             retrofit                     : ("com.squareup.retrofit2:retrofit:$retrofit_version"),
             retrofitGson                 : ("com.squareup.retrofit2:converter-gson:$retrofit_version"),
+            okhttp3                      : ("com.squareup.okhttp3:okhttp:$okhttp_version"),
+            mockWebServer                : ("com.squareup.okhttp3:mockwebserver:$mockWebServer_version"),
             multidex                     : ("com.android.support:multidex:$multidex_version"),
             junit                        : ("junit:junit:$junit_version"),
             kotlin                       : ("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"),
@@ -37,11 +39,14 @@ ext {
             serialization                : ("org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"),
             spekDslJvm                   : ("org.spekframework.spek2:spek-dsl-jvm:$spek_version"),
             spekRunnerJUnit5             : ("org.spekframework.spek2:spek-runner-junit5:$spek_version"),
-            kotlinReflect                : ("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version")
+            kotlinReflect                : ("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
+            coroutinesTest               : ("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"),
 
 
             // modules
-//            client_entity                : project(":${gradle.ext.clientFolder}:entity")
+            auth                        : project(":auth"),
+            auth_api                    : project(":auth_api"),
+            network                      : project(":network"),
     ]
 
     groups = [
@@ -50,11 +55,13 @@ ext {
                     library.mockitoCore,
                     library.mockitoInline,
                     library.mockitoKotlin,
+                    library.mockWebServer,
                     library.googleTruth,
                     library.kotlinTest,
                     library.spekDslJvm,
                     library.spekRunnerJUnit5,
-                    library.kotlinReflect
+                    library.kotlinReflect,
+                    library.coroutinesTest
             ],
             koinWithExt: [
                     library.koin,
