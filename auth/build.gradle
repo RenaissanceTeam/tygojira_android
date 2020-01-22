@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply from: "$rootDir/gradle/scripts/android-module.gradle"
 
 dependencies {
-    implementation library._auth_api
+    implementation library.auth_api
     implementation library.coroutinesCore
     implementation groups.koinWithExt
     implementation library.retrofit
