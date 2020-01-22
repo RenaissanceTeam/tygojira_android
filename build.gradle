@@ -12,7 +12,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$build_tools_version"
@@ -25,7 +24,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 
