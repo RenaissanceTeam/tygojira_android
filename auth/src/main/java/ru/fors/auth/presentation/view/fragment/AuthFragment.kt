@@ -20,7 +20,7 @@ import ru.fors.auth.presentation.viewmodel.AuthViewModel
  */
 class AuthFragment : Fragment() {
 
-    val model: AuthViewModel by viewModel()
+    private val model: AuthViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,7 +36,6 @@ class AuthFragment : Fragment() {
             val login = view.findViewById<TextInputEditText>(R.id.loginET).text?.toString()
             val password = view.findViewById<TextInputEditText>(R.id.passwordET).text?.toString()
             model.onLoginRequired(login = login, password = password)
-            model.onTest()
         }
         GlobalScope.launch {
             model.state.collect { Log.d("AuthFragment", "$it") }
