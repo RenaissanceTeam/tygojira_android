@@ -15,6 +15,6 @@ class AppActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("AppActivity", "started")
-        setContentView(R.layout.layouta)
+        setContentView(R.layout.activity_main)
     }
 }
