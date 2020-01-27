@@ -10,7 +10,6 @@ import ru.fors.auth.data.repository.RealtimeTokenRepository
 import ru.fors.auth.data.repository.auth.AuthRepository
 import ru.fors.auth.data.repository.auth.RetrofitAuthRepository
 import ru.fors.auth.domain.SignInUseCaseImpl
-import ru.fors.auth.presentation.view.fragment.AuthFragment
 import ru.fors.auth.presentation.viewmodel.AuthViewModel
 
 /**

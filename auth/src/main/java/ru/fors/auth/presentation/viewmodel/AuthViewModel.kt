@@ -3,10 +3,11 @@ package ru.fors.auth.presentation.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.scan
-import kotlinx.coroutines.runBlocking
 import ru.fors.auth.api.domain.SignInUseCase
 import ru.fors.auth.api.domain.dto.Credentials
 
@@ -23,13 +24,14 @@ class AuthViewModel(
     val state = stateRelay.asFlow()
         .scan(AuthViewState()) { state, partial -> partial(state) }
         .distinctUntilChanged()
+        .flowOn(Dispatchers.Main)
 
     fun onLoginRequired(login: String?, password: String?) {
         if (!checkLogin(login) and !checkPassword(password)) {
             return
         }
 
-        runBlocking {
+        viewModelScope.launch {
             signInUseCase(Credentials(login = login!!, password = password!!))
                 .runCatching {
 

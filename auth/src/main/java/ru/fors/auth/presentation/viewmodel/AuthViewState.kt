@@ -4,7 +4,7 @@ package ru.fors.auth.presentation.viewmodel
  * Created by 23alot on 26.01.2020.
  */
 data class AuthViewState(
-    val event: AuthEvent = AuthEvent.SignInSuccessful,
+    val event: AuthEvent = AuthEvent.SignInEvent,
     val loginState: LoginState = LoginState.Default,
     val passwordState: PasswordState = PasswordState.Default,
     val signInState: SignInState = SignInState.Default
@@ -13,13 +13,11 @@ data class AuthViewState(
 sealed class AuthEvent {
     object Start : AuthEvent()
 
-    object SignInSuccessful : AuthEvent()
+    object SignInEvent : AuthEvent()
 
-    object SignInError : AuthEvent()
+    object LoginEvent : AuthEvent()
 
-    object LoginError : AuthEvent()
-
-    object PasswordError : AuthEvent()
+    object PasswordEvent : AuthEvent()
 }
 
 sealed class LoginState {
@@ -46,6 +44,8 @@ sealed class PasswordState {
 
 sealed class SignInState {
     object Default : SignInState()
+
+    object Success : SignInState()
 
     data class Error(val throwable: Throwable): SignInState()
 }
