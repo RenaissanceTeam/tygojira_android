@@ -1,4 +1,4 @@
-package ru.fors.auth.di
+package ru.fors.network.di
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
