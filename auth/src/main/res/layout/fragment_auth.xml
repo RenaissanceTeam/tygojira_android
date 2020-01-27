@@ -5,34 +5,34 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginTextInput"
+        android:id="@+id/login_text_input"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/login_hint_text"
-        app:layout_constraintBottom_toTopOf="@id/passwordTextInput"
+        app:layout_constraintBottom_toTopOf="@id/password_text_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/loginET"
+            android:id="@+id/login_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordTextInput"
+        android:id="@+id/password_text_input"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:hint="@string/password_input_text"
-        app:layout_constraintBottom_toTopOf="@id/loginButton"
+        app:layout_constraintBottom_toTopOf="@id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginTextInput">
+        app:layout_constraintTop_toBottomOf="@id/login_text_input">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passwordET"
+            android:id="@+id/password_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -40,13 +40,13 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginButton"
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/buttonLoginTest"
+        android:text="@string/button_login_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginTextInput" />
+        app:layout_constraintTop_toBottomOf="@id/login_text_input" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

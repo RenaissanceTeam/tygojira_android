@@ -11,7 +11,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
-import ru.fors.R
+import ru.fors.auth.R
 import ru.fors.auth.presentation.viewmodel.*
 
 /**
@@ -31,9 +31,9 @@ class AuthFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginButton.setOnClickListener {
-            val login = loginET.text?.toString()
-            val password = passwordET.text?.toString()
+        login_button.setOnClickListener {
+            val login = login_edit.text?.toString()
+            val password = password_edit.text?.toString()
             model.onLoginRequired(login = login, password = password)
         }
         GlobalScope.launch {
@@ -81,22 +81,22 @@ class AuthFragment : Fragment() {
     }
 
     private fun showLoginDefault() {
-        loginTextInput.isErrorEnabled = false
+        login_text_input.isErrorEnabled = false
     }
 
     private fun showLoginNotAllowed() {
-        loginTextInput.isErrorEnabled = true
-        loginTextInput.error = "Недопустимый логин"
+        login_text_input.isErrorEnabled = true
+        login_text_input.error = "Недопустимый логин"
     }
 
     private fun showLoginShort() {
-        loginTextInput.isErrorEnabled = true
-        loginTextInput.error = "Короткий логин"
+        login_text_input.isErrorEnabled = true
+        login_text_input.error = "Короткий логин"
     }
 
     private fun showLoginEmpty() {
-        loginTextInput.isErrorEnabled = true
-        loginTextInput.error = "Пустой логин"
+        login_text_input.isErrorEnabled = true
+        login_text_input.error = "Пустой логин"
     }
 
     private fun showPasswordState(state: PasswordState) {
@@ -109,21 +109,21 @@ class AuthFragment : Fragment() {
     }
 
     private fun showPasswordDefault() {
-        loginTextInput.isErrorEnabled = false
+        login_text_input.isErrorEnabled = false
     }
 
     private fun showPasswordNotAllowed() {
-        loginTextInput.isErrorEnabled = true
-        loginTextInput.error = "Недопустимый логин"
+        login_text_input.isErrorEnabled = true
+        login_text_input.error = "Недопустимый логин"
     }
 
     private fun showPasswordShort() {
-        loginTextInput.isErrorEnabled = true
-        loginTextInput.error = "Короткий логин"
+        login_text_input.isErrorEnabled = true
+        login_text_input.error = "Короткий логин"
     }
 
     private fun showPasswordEmpty() {
-        loginTextInput.isErrorEnabled = true
-        loginTextInput.error = "Пустой логин"
+        login_text_input.isErrorEnabled = true
+        login_text_input.error = "Пустой логин"
     }
 }
