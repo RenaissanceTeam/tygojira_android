@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_auth.*
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -17,6 +18,7 @@ import ru.fors.auth.presentation.viewmodel.*
 /**
  * Created by 23alot on 26.01.2020.
  */
+@InternalCoroutinesApi
 class AuthFragment : Fragment() {
 
     private val model: AuthViewModel by viewModel()
@@ -86,17 +88,17 @@ class AuthFragment : Fragment() {
 
     private fun showLoginNotAllowed() {
         login_text_input.isErrorEnabled = true
-        login_text_input.error = "Недопустимый логин"
+        login_text_input.error = getString(R.string.login_not_allowed_text)
     }
 
     private fun showLoginShort() {
         login_text_input.isErrorEnabled = true
-        login_text_input.error = "Короткий логин"
+        login_text_input.error = getString(R.string.login_short_text)
     }
 
     private fun showLoginEmpty() {
         login_text_input.isErrorEnabled = true
-        login_text_input.error = "Пустой логин"
+        login_text_input.error = getString(R.string.login_empty_text)
     }
 
     private fun showPasswordState(state: PasswordState) {
@@ -114,16 +116,16 @@ class AuthFragment : Fragment() {
 
     private fun showPasswordNotAllowed() {
         login_text_input.isErrorEnabled = true
-        login_text_input.error = "Недопустимый логин"
+        login_text_input.error = getString(R.string.password_not_allowed)
     }
 
     private fun showPasswordShort() {
         login_text_input.isErrorEnabled = true
-        login_text_input.error = "Короткий логин"
+        login_text_input.error = getString(R.string.password_short_text)
     }
 
     private fun showPasswordEmpty() {
         login_text_input.isErrorEnabled = true
-        login_text_input.error = "Пустой логин"
+        login_text_input.error = getString(R.string.password_empty_text)
     }
 }
