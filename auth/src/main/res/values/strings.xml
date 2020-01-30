@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">auth</string>
+    <string name="button_login_text">Войти</string>
+    <string name="login_hint_text">Логин</string>
+    <string name="password_input_text">Пароль</string>
+    <string name="login_not_allowed_text">Недопустимый логин</string>
+    <string name="login_empty_text">Пустой логин</string>
+    <string name="login_short_text">Короткий логин</string>
+    <string name="password_not_allowed">Недопустимый пароль</string>
+    <string name="password_short_text">Короткий пароль</string>
+    <string name="password_empty_text">Пустой пароль</string>
 </resources>

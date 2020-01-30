@@ -3,9 +3,16 @@ apply plugin: 'kotlin-android'
 apply from: "$rootDir/gradle/scripts/android-module.gradle"
 
 dependencies {
+    implementation library.auth
+    implementation library.network
     implementation library.multidex
     implementation library.appCompat
     implementation library.koin
+    implementation library.constraintLayout
+    implementation library.fragmentKtx
+    implementation library.lifecycleExtensions
+    implementation library.lifecycleViewModel
+    implementation library.lifecycleLivedata
 }
 
 apply plugin: 'kotlin-android-extensions'

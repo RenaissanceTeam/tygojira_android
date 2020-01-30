@@ -1,4 +1,4 @@
-package ru.fors.di
+package ru.fors.network.di
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * Created by 23alot on 22.01.2020.
  */
-private val url = "leha.net"
+private val url = "https://leha.net"
 
 val networkModule = module {
     single<Gson> {

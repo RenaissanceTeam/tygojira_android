@@ -30,6 +30,8 @@ ext {
             preference                   : ("androidx.preference:preference:$preference_version"),
             coreKtx                      : ("androidx.core:core-ktx:$coreKtx_version"),
             fragmentKtx                  : ("androidx.fragment:fragment-ktx:$fragmentKtx_version"),
+            epoxy                        : ("com.airbnb.android:epoxy:$epoxy_version"),
+            epoxyProcessor               : ("com.airbnb.android:epoxy-processor:$epoxy_version"),
             cicerone                     : ("ru.terrakok.cicerone:cicerone:$cicerone_version"),
             navigationFragmentKtx        : ("androidx.navigation:navigation-fragment-ktx:$navigationFragmentKtx_version"),
             navigationUiKtx              : ("androidx.navigation:navigation-ui-ktx:$navigationUiKtx_version"),
@@ -41,6 +43,7 @@ ext {
             spekRunnerJUnit5             : ("org.spekframework.spek2:spek-runner-junit5:$spek_version"),
             kotlinReflect                : ("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
             coroutinesTest               : ("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"),
+            material                     : ("com.google.android.material:material:$material_version"),
 
 
             // modules
