@@ -1,2 +1,2 @@
-include ':app', ':auth_api', ':auth', ':network', ':utils'
+include ':app', ':auth_api', ':auth', ':network', ':utils', ':navigation'
 rootProject.name='fors'

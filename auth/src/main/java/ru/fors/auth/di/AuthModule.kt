@@ -1,7 +1,6 @@
 package ru.fors.auth.di
 
 import org.koin.android.viewmodel.dsl.viewModel
-import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import org.koin.experimental.builder.singleBy
 import ru.fors.auth.api.data.TokenRepository

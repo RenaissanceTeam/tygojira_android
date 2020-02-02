@@ -8,10 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import ru.fors.R
-import ru.fors.utils.ui.BaseFragment
+import ru.fors.navigation.ui.BaseFragment
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
@@ -40,12 +39,11 @@ class AppActivity : AppCompatActivity() {
         get() = supportFragmentManager.findFragmentById(R.id.container) as? BaseFragment
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        container.doOnApplyWindowInsets { view, insets, initialPadding ->
+        findViewById<View>(R.id.container).doOnApplyWindowInsets { view, insets, initialPadding ->
             view.updatePadding(
                 left = initialPadding.left + insets.systemWindowInsetLeft,
                 right = initialPadding.right + insets.systemWindowInsetRight

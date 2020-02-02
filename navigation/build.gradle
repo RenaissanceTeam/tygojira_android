@@ -6,4 +6,5 @@ dependencies {
     implementation groups.koinWithExt
     implementation library.fragmentKtx
     implementation library.cicerone
+    implementation library.utils
 }

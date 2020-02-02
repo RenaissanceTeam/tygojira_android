@@ -6,6 +6,7 @@ dependencies {
     implementation library.auth
     implementation library.network
     implementation library.cicerone
+    implementation library.navigation
     implementation library.utils
     implementation library.multidex
     implementation library.appCompat
