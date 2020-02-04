@@ -1,11 +1,8 @@
 package ru.fors.auth.presentation.view.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_auth.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -14,22 +11,18 @@ import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 import ru.fors.auth.R
 import ru.fors.auth.presentation.viewmodel.*
+import ru.fors.navigation.ui.BaseFragment
 
 /**
  * Created by 23alot on 26.01.2020.
  */
 @InternalCoroutinesApi
-class AuthFragment : Fragment() {
+class AuthFragment : BaseFragment() {
 
     private val model: AuthViewModel by viewModel()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_auth, container, false)
-    }
+    override val layoutRes: Int
+        get() = R.layout.fragment_auth
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

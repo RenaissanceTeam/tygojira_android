@@ -4,18 +4,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asFlow
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.scan
+import kotlinx.coroutines.launch
 import ru.fors.auth.api.domain.SignInUseCase
 import ru.fors.auth.api.domain.dto.Credentials
+import ru.fors.auth.router.AuthRouter
 
 /**
  * Created by 23alot on 26.01.2020.
  */
 class AuthViewModel(
-    private val signInUseCase: SignInUseCase
+    private val signInUseCase: SignInUseCase,
+    private val authRouter: AuthRouter
 ) : ViewModel() {
 
     private val stateRelay = MutableLiveData<AuthPartialViewState>()
@@ -37,7 +41,10 @@ class AuthViewModel(
 
                 }
                 .onFailure { stateRelay.postValue(AuthPartialViewStates.signInError(it)) }
-                .onSuccess { stateRelay.postValue(AuthPartialViewStates.signInSuccess()) }
+                .onSuccess {
+                    stateRelay.postValue(AuthPartialViewStates.signInSuccess())
+                    authRouter.onAuthSuccess()
+                }
         }
     }
 

@@ -9,6 +9,7 @@ dependencies {
     implementation library.material
     implementation library.constraintLayout
     implementation library.fragmentKtx
+    implementation library.navigation
     implementation library.lifecycleExtensions
     implementation library.lifecycleViewModel
     implementation library.lifecycleLivedata
