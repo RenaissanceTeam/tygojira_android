@@ -31,35 +31,6 @@ abstract class BaseFragment : Fragment() {
 
     private val viewHandler = Handler()
 
-    protected open val parentScopeName: String by lazy {
-        (parentFragment as? BaseFragment)?.fragmentScopeName
-            ?: "HZ POKA???"
-    }
-
-    private lateinit var fragmentScopeName: String
-
-    protected lateinit var scope: Scope
-        private set
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        fragmentScopeName = savedInstanceState?.getString(STATE_SCOPE_NAME) ?: objectScopeName()
-
-
-
-        if (getKoin().isScopeOpen(fragmentScopeName)) {
-            Log.d(TAG, "Get exist UI scope: $fragmentScopeName")
-            scope = getKoin().getScope(fragmentScopeName)
-        } else {
-            Log.d(TAG, "Init new UI scope: $fragmentScopeName -> $parentScopeName")
-
-
-            scope = getKoin().createScope(fragmentScopeName, named(fragmentScopeName))
-        }
-
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -79,30 +50,7 @@ abstract class BaseFragment : Fragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         instanceStateSaved = true
-        outState.putString(STATE_SCOPE_NAME, fragmentScopeName)
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        if (needCloseScope()) {
-            // Destroy this fragment with scope
-            Log.d(TAG, "Destroy UI scope: $fragmentScopeName")
-            getKoin().deleteScope(scope.id)
-        }
-    }
-
-    // This is android, baby!
-    private fun isRealRemoving(): Boolean =
-        (isRemoving && !instanceStateSaved) || // Because isRemoving == true for fragment in backstack on screen rotation
-                ((parentFragment as? BaseFragment)?.isRealRemoving() ?: false)
-
-    // It will be valid only for 'onDestroy()' method
-    private fun needCloseScope(): Boolean = when {
-        activity?.isChangingConfigurations == true -> false
-        activity?.isFinishing == true -> true
-        else -> isRealRemoving()
-    }
-
 
     open fun onBackPressed() {}
 }

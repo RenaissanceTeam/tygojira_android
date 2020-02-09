@@ -3,11 +3,13 @@ package ru.fors.auth.presentation.view.fragment
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.fragment_auth.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import org.koin.android.scope.currentScope
 import org.koin.android.viewmodel.ext.android.viewModel
 import ru.fors.auth.R
 import ru.fors.auth.presentation.viewmodel.*
@@ -19,7 +21,7 @@ import ru.fors.navigation.ui.BaseFragment
 @InternalCoroutinesApi
 class AuthFragment : BaseFragment() {
 
-    private val model: AuthViewModel by viewModel()
+    private val model: AuthViewModel by currentScope.inject()
 
     override val layoutRes: Int
         get() = R.layout.fragment_auth
