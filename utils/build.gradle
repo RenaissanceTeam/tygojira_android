@@ -1,0 +1,9 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply from: "$rootDir/gradle/scripts/android-module.gradle"
+
+dependencies {
+    implementation groups.koinWithExt
+    implementation library.fragmentKtx
+    implementation library.cicerone
+}

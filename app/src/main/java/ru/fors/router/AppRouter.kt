@@ -1,0 +1,16 @@
+package ru.fors.router
+
+import ru.fors.Screens
+import ru.fors.auth.router.AuthRouter
+import ru.terrakok.cicerone.Router
+
+/**
+ * Created by 23alot on 04.02.2020.
+ */
+class AppRouter(
+    private val router: Router
+) : AuthRouter {
+    override fun onAuthSuccess() {
+        router.newRootScreen(Screens.Main)
+    }
+}
