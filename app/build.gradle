@@ -16,6 +16,7 @@ dependencies {
     implementation library.lifecycleExtensions
     implementation library.lifecycleViewModel
     implementation library.lifecycleLivedata
+    implementation library.material
 }
 
 apply plugin: 'kotlin-android-extensions'

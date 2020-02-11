@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">navigation</string>
+    <string name="bottom_navigation_company">Компания</string>
+    <string name="bottom_navigation_settings">Настройки</string>
+    <string name="bottom_navigation_user">Пользователь</string>
+</resources>
