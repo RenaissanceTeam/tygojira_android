@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="itemIconTintColor">#FFF</color>
+    <color name="itemTextColor">#FFF</color>
+</resources>

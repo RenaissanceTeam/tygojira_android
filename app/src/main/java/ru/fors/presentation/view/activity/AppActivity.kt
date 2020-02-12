@@ -1,4 +1,4 @@
-package ru.fors.test
+package ru.fors.presentation.view.activity
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -8,9 +8,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import ru.fors.R
 import ru.fors.navigation.ui.BaseFragment
+import ru.fors.presentation.viewmodel.AppViewModel
+import ru.fors.presentation.viewmodel.AppViewState
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
@@ -21,6 +28,7 @@ import ru.terrakok.cicerone.commands.Command
  */
 class AppActivity : AppCompatActivity() {
     private val navigatorHolder: NavigatorHolder by inject()
+    private val model: AppViewModel by inject()
 
     private val navigator: Navigator =
         object : SupportAppNavigator(this, supportFragmentManager, R.id.container) {
@@ -58,7 +66,21 @@ class AppActivity : AppCompatActivity() {
             )
         }
 
+        GlobalScope.launch(Dispatchers.Main) {
+            model.state
+                .collect { updateState(it) }
+        }
 
+        model.startAuthFlow()
+
+    }
+
+    private fun updateState(state: AppViewState) {
+        findViewById<View>(R.id.bottom_navigation).visibility = if (state.shouldShowBottomNavigation) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
     }
 
     override fun onResumeFragments() {
@@ -74,5 +96,4 @@ class AppActivity : AppCompatActivity() {
     override fun onBackPressed() {
         currentFragment?.onBackPressed() ?: super.onBackPressed()
     }
-
 }

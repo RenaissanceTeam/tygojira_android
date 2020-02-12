@@ -10,6 +10,11 @@ import ru.terrakok.cicerone.Router
 class AppRouter(
     private val router: Router
 ) : AuthRouter {
+
+    fun onAuthStart() {
+        router.newRootScreen(Screens.Auth)
+    }
+
     override fun onAuthSuccess() {
         router.newRootScreen(Screens.Main)
     }
