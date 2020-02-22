@@ -14,9 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="#000"
-        app:itemIconTint="@color/itemIconTintColor"
-        app:itemTextColor="@color/itemTextColor"
         style="@style/Widget.MaterialComponents.BottomNavigationView"
         app:menu="@menu/bottom_navigation_menu" />
 </FrameLayout>

@@ -7,7 +7,10 @@ import android.view.doOnApplyWindowInsets
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.bottomnavigation.BottomNavigationMenu
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.MainScope
@@ -50,6 +53,11 @@ class AppActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportFragmentManager.addOnBackStackChangedListener {
+            val a = 0
+        }
+
+        supportFragmentManager.registerFragmentLifecycleCallbacks(A(), true)
 
         findViewById<View>(R.id.container).doOnApplyWindowInsets { view, insets, initialPadding ->
             view.updatePadding(
@@ -95,5 +103,17 @@ class AppActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         currentFragment?.onBackPressed() ?: super.onBackPressed()
+    }
+
+    class A : FragmentManager.FragmentLifecycleCallbacks() {
+        override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
+            super.onFragmentResumed(fm, f)
+            val a = 0
+        }
+
+        override fun onFragmentPaused(fm: FragmentManager, f: Fragment) {
+            super.onFragmentPaused(fm, f)
+            val a = 0
+        }
     }
 }

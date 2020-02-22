@@ -6,6 +6,7 @@ apply from: "$rootDir/gradle/scripts/android-module.gradle"
 dependencies {
     implementation library.kotlinReflect
     implementation library.appCompat
+    implementation library.ui
     implementation library.material
     implementation library.constraintLayout
     implementation library.fragmentKtx
@@ -14,6 +15,7 @@ dependencies {
     implementation library.lifecycleViewModel
     implementation library.lifecycleLivedata
     implementation library.auth_api
+    implementation library.user_api
     implementation library.coroutinesCore
     implementation library.koinViewModel
     implementation groups.koinWithExt

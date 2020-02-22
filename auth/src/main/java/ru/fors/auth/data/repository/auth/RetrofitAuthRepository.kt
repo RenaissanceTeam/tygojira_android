@@ -1,6 +1,10 @@
 package ru.fors.auth.data.repository.auth
 
+import kotlinx.coroutines.runBlocking
+import okhttp3.*
 import retrofit2.Retrofit
+import ru.fors.auth.api.data.AuthRepository
+import ru.fors.auth.api.data.TokenRepository
 import ru.fors.auth.api.domain.dto.Credentials
 import ru.fors.auth.api.domain.dto.TokenResponse
 import ru.fors.auth.data.framework.RetrofitTokenApi

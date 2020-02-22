@@ -7,5 +7,6 @@ dependencies {
     implementation library.fragmentKtx
     implementation library.cicerone
     implementation library.utils
+    implementation library.ui
     implementation library.material
 }

@@ -4,6 +4,7 @@ apply from: "$rootDir/gradle/scripts/android-module.gradle"
 
 dependencies {
     implementation library.auth
+    implementation library.user
     implementation library.network
     implementation library.cicerone
     implementation library.navigation
@@ -17,6 +18,7 @@ dependencies {
     implementation library.lifecycleExtensions
     implementation library.lifecycleViewModel
     implementation library.lifecycleLivedata
+    implementation library.ui
     implementation library.material
 }
 

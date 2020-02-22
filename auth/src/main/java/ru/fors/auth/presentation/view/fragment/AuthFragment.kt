@@ -10,6 +10,7 @@ import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.scope.currentScope
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import ru.fors.auth.R
 import ru.fors.auth.presentation.viewmodel.*
@@ -33,7 +34,8 @@ class AuthFragment : BaseFragment() {
             val password = password_edit.text?.toString()
             model.onLoginRequired(login = login, password = password)
         }
-        GlobalScope.launch {
+
+        lifecycleScope.launch {
             model.state
                 .collect { updateState(it) }
         }

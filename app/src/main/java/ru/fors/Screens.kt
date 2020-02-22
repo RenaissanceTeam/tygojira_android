@@ -3,6 +3,7 @@ package ru.fors
 import androidx.fragment.app.Fragment
 import kotlinx.coroutines.InternalCoroutinesApi
 import ru.fors.auth.presentation.view.fragment.AuthFragment
+import ru.fors.user.presentation.view.fragment.UserFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
 /**
@@ -17,9 +18,7 @@ object Screens {
     }
 
     object Main: SupportAppScreen() {
-        //TODO: сделать Main экран
-//        override fun getFragment(): Fragment {
-//
-//        }
+        @InternalCoroutinesApi
+        override fun getFragment(): Fragment = UserFragment()
     }
 }
