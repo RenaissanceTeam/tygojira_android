@@ -6,6 +6,7 @@ apply from: "$rootDir/gradle/scripts/android-module.gradle"
 dependencies {
     implementation library.kotlinReflect
     implementation library.appCompat
+    implementation library.ui
     implementation library.material
     implementation library.constraintLayout
     implementation library.fragmentKtx

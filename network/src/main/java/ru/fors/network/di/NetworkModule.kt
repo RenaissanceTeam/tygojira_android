@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 /**
  * Created by 23alot on 22.01.2020.
  */
-private val url = "https://leha.net"
+private val url = "http://46.242.38.14:7777/"
 
 val networkModule = module {
     single<Gson> {

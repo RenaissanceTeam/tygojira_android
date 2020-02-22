@@ -7,6 +7,7 @@ import org.koin.core.context.startKoin
 import ru.fors.auth.di.authModule
 import ru.fors.di.routerModule
 import ru.fors.network.di.networkModule
+import ru.fors.user.di.userModule
 import ru.terrakok.cicerone.Cicerone
 
 /**
@@ -17,7 +18,15 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            modules(listOf(navigationModule, authModule, networkModule, routerModule))
+            modules(
+                listOf(
+                    navigationModule,
+                    authModule,
+                    networkModule,
+                    userModule,
+                    routerModule
+                )
+            )
         }
     }
 }

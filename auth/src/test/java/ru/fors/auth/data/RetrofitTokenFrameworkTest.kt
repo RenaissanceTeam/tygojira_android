@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.fors.auth.api.domain.dto.Credentials
 import ru.fors.auth.api.domain.dto.TokenResponse
-import ru.fors.auth.data.framework.RetrofitTokenFramework
+import ru.fors.auth.data.framework.RetrofitTokenApi
 import java.net.HttpURLConnection
 import kotlin.test.assertEquals
 
@@ -31,7 +31,7 @@ object RetrofitTokenFrameworkTest : Spek({
         .build()
 
     describe("Получение token'a") {
-        val b = retrofit.create(RetrofitTokenFramework::class.java)
+        val b = retrofit.create(RetrofitTokenApi::class.java)
         val body = TokenResponse(token = "123")
 
         val response = MockResponse()

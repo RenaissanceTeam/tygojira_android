@@ -1,4 +1,4 @@
-package ru.fors.auth.data.repository.auth
+package ru.fors.auth.api.data
 
 import ru.fors.auth.api.domain.dto.Credentials
 import ru.fors.auth.api.domain.dto.TokenResponse

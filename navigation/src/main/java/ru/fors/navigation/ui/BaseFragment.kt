@@ -27,6 +27,8 @@ abstract class BaseFragment : Fragment() {
 
     abstract val layoutRes: Int
 
+    abstract val shouldShowNavigationBar: Boolean
+
     private var instanceStateSaved: Boolean = false
 
     private val viewHandler = Handler()

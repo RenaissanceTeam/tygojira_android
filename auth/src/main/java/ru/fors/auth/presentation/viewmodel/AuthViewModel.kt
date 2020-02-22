@@ -36,15 +36,16 @@ class AuthViewModel(
         }
 
         viewModelScope.launch {
-            signInUseCase(Credentials(login = login!!, password = password!!))
-                .runCatching {
+            val tokenEvent = signInUseCase(Credentials(login = login!!, password = password!!))
 
-                }
-                .onFailure { stateRelay.postValue(AuthPartialViewStates.signInError(it)) }
-                .onSuccess {
+            when(tokenEvent) {
+                is SignInUseCase.TokenEvent.Token -> {
                     stateRelay.postValue(AuthPartialViewStates.signInSuccess())
                     authRouter.onAuthSuccess()
                 }
+                is SignInUseCase.TokenEvent.NotExist -> stateRelay.postValue(AuthPartialViewStates.notAllowedLogin())
+                is SignInUseCase.TokenEvent.Error -> stateRelay.postValue(AuthPartialViewStates.signInError(tokenEvent.throwable))
+            }
         }
     }
 
