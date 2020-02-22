@@ -9,11 +9,8 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.google.android.material.bottomnavigation.BottomNavigationMenu
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -32,6 +29,9 @@ import ru.terrakok.cicerone.commands.Command
 class AppActivity : AppCompatActivity() {
     private val navigatorHolder: NavigatorHolder by inject()
     private val model: AppViewModel by inject()
+    private val lifecycleCallbacks by lazy {
+        LifecycleCallbacks()
+    }
 
     private val navigator: Navigator =
         object : SupportAppNavigator(this, supportFragmentManager, R.id.container) {
@@ -53,11 +53,8 @@ class AppActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportFragmentManager.addOnBackStackChangedListener {
-            val a = 0
-        }
 
-        supportFragmentManager.registerFragmentLifecycleCallbacks(A(), true)
+        supportFragmentManager.registerFragmentLifecycleCallbacks(lifecycleCallbacks, true)
 
         findViewById<View>(R.id.container).doOnApplyWindowInsets { view, insets, initialPadding ->
             view.updatePadding(
@@ -84,11 +81,12 @@ class AppActivity : AppCompatActivity() {
     }
 
     private fun updateState(state: AppViewState) {
-        findViewById<View>(R.id.bottom_navigation).visibility = if (state.shouldShowBottomNavigation) {
-            View.VISIBLE
-        } else {
-            View.GONE
-        }
+        findViewById<View>(R.id.bottom_navigation).visibility =
+            if (state.shouldShowBottomNavigation) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
     }
 
     override fun onResumeFragments() {
@@ -105,15 +103,18 @@ class AppActivity : AppCompatActivity() {
         currentFragment?.onBackPressed() ?: super.onBackPressed()
     }
 
-    class A : FragmentManager.FragmentLifecycleCallbacks() {
+    override fun onDestroy() {
+        supportFragmentManager.unregisterFragmentLifecycleCallbacks(lifecycleCallbacks)
+        super.onDestroy()
+    }
+
+    inner class LifecycleCallbacks : FragmentManager.FragmentLifecycleCallbacks() {
         override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
             super.onFragmentResumed(fm, f)
-            val a = 0
-        }
-
-        override fun onFragmentPaused(fm: FragmentManager, f: Fragment) {
-            super.onFragmentPaused(fm, f)
-            val a = 0
+            val fragment = (f as? BaseFragment)
+                ?: throw IllegalArgumentException("All fragments have to extend BaseFragment")
+            val shouldShow = fragment.shouldShowNavigationBar
+            model.onScreenShown(shouldShow)
         }
     }
 }

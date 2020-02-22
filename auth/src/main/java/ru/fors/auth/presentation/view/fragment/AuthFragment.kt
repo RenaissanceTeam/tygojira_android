@@ -27,6 +27,9 @@ class AuthFragment : BaseFragment() {
     override val layoutRes: Int
         get() = R.layout.fragment_auth
 
+    override val shouldShowNavigationBar: Boolean
+        get() = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         login_button.setOnClickListener {

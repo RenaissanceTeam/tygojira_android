@@ -12,4 +12,10 @@ object AppPartialViewStates {
             shouldShowBottomNavigation = false
         )
     }
+
+    fun onScreenShow(shouldShowNavigationBar: Boolean): AppPartialViewState = { previousViewState ->
+        previousViewState.copy(
+            shouldShowBottomNavigation = shouldShowNavigationBar
+        )
+    }
 }

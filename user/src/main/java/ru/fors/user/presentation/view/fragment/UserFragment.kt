@@ -25,6 +25,9 @@ class UserFragment : BaseFragment() {
     override val layoutRes: Int
         get() = R.layout.fragment_user
 
+    override val shouldShowNavigationBar: Boolean
+        get() = true
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

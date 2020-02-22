@@ -29,4 +29,8 @@ class AppViewModel constructor(
         stateRelay.postValue(AppPartialViewStates.login())
         router.onAuthStart()
     }
+
+    fun onScreenShown(shouldShovNavigationBar: Boolean) {
+        stateRelay.postValue(AppPartialViewStates.onScreenShow(shouldShovNavigationBar))
+    }
 }
