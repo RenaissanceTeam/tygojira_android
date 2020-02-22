@@ -8,7 +8,7 @@ import ru.fors.auth.api.data.UsernameRepository
 class RealtimeUsernameRepository : UsernameRepository {
     private var username: String? = null
 
-    override suspend fun requireUsername(): String = username ?: ""
+    override suspend fun requireUsername(): String = username.orEmpty()
 
     override suspend fun setUsername(username: String) {
         this.username = username

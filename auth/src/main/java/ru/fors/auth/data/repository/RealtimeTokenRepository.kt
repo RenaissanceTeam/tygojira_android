@@ -10,7 +10,7 @@ class RealtimeTokenRepository : TokenRepository {
     private var token: String? = null
 
     override suspend fun requireToken(): String {
-        return token ?: ""
+        return token.orEmpty()
     }
 
     override suspend fun setToken(token: String) {
