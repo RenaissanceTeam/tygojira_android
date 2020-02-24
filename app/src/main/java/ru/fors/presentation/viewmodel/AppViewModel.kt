@@ -33,4 +33,19 @@ class AppViewModel constructor(
     fun onScreenShown(shouldShovNavigationBar: Boolean) {
         stateRelay.postValue(AppPartialViewStates.onScreenShow(shouldShovNavigationBar))
     }
+
+    fun onUserNavigation() {
+        stateRelay.postValue(AppPartialViewStates.onUserNavigation())
+        router.onUser()
+    }
+
+    fun onActivitiesNavigation() {
+        stateRelay.postValue(AppPartialViewStates.onActivitiesNavigation())
+        router.onActivities()
+    }
+
+    fun onSettingsNavigation() {
+        stateRelay.postValue(AppPartialViewStates.onSettingsNavigation())
+        router.onSettings()
+    }
 }

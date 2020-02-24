@@ -9,6 +9,7 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
@@ -70,6 +71,7 @@ class AppActivity : AppCompatActivity() {
                 )
             )
         }
+        setupBottomNavigation()
 
         GlobalScope.launch(Dispatchers.Main) {
             model.state
@@ -78,6 +80,18 @@ class AppActivity : AppCompatActivity() {
 
         model.startAuthFlow()
 
+    }
+
+    private fun setupBottomNavigation() {
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).setOnNavigationItemSelectedListener { menuItem ->
+            val id = menuItem.itemId
+            when(id) {
+                R.id.action_user -> model.onUserNavigation()
+                R.id.action_activities -> model.onActivitiesNavigation()
+                R.id.action_settings -> model.onSettingsNavigation()
+            }
+            true
+        }
     }
 
     private fun updateState(state: AppViewState) {
