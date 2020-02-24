@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="selected_day">#5199FF</color>
     <color name="activity1">#d32f2f</color>
     <color name="activity2">#455A64</color>
     <color name="activity3">#C2185B</color>
@@ -8,5 +9,5 @@
     <color name="activity6">#E64A19</color>
     <color name="activity7">#1976D2</color>
 
-    <color name="transparent">#80FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

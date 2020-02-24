@@ -1,5 +1,6 @@
 package ru.fors.activities.presentation.viewmodel
 
+import org.threeten.bp.LocalDate
 import ru.fors.activities.api.domain.dto.Activity
 
 /**
@@ -20,6 +21,12 @@ object UserPartialViewStates {
     fun onActivitiesLoaded(activities: List<Activity>): ActivitiesPartialViewState = { previousViewState ->
         previousViewState.copy(
             activities = activities
+        )
+    }
+
+    fun onDateClicked(date: LocalDate): ActivitiesPartialViewState = { previousViewState ->
+        previousViewState.copy(
+            date = date
         )
     }
 }

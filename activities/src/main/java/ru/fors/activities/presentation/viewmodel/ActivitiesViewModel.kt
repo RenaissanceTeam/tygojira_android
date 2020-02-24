@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.launch
+import org.threeten.bp.LocalDate
 import ru.fors.activities.api.domain.ActivitiesUseCase
 
 /**
@@ -37,5 +38,9 @@ class ActivitiesViewModel(
             }
         }
 
+    }
+
+    fun onDateClicked(day: LocalDate) {
+        stateRelay.postValue(UserPartialViewStates.onDateClicked(day))
     }
 }
