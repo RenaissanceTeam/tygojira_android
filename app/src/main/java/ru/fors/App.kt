@@ -1,9 +1,13 @@
 package ru.fors
 
 import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import com.jakewharton.threetenabp.AndroidThreeTen
 import di.navigationModule
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.koin.core.context.startKoin
+import ru.fors.activities.di.activitiesModule
 import ru.fors.auth.di.authModule
 import ru.fors.di.routerModule
 import ru.fors.network.di.networkModule
@@ -17,6 +21,7 @@ class App : Application() {
     @InternalCoroutinesApi
     override fun onCreate() {
         super.onCreate()
+        AndroidThreeTen.init(this)
         startKoin {
             modules(
                 listOf(
@@ -24,9 +29,12 @@ class App : Application() {
                     authModule,
                     networkModule,
                     userModule,
+                    activitiesModule,
                     routerModule
                 )
             )
         }
+
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="selected_day">#2E3F7F</color>
+    <color name="activity1">#ef9a9a</color>
+    <color name="activity2">#B0BEC5</color>
+    <color name="activity3">#F48FB1</color>
+    <color name="activity4">#BCAAA4</color>
+    <color name="activity5">#B39DDB</color>
+    <color name="activity6">#FFE082</color>
+    <color name="activity7">#9FA8DA</color>
+</resources>

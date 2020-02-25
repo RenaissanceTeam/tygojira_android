@@ -18,4 +18,25 @@ object AppPartialViewStates {
             shouldShowBottomNavigation = shouldShowNavigationBar
         )
     }
+
+    fun onUserNavigation(): AppPartialViewState = { previousViewState ->
+        previousViewState.copy(
+            shouldShowBottomNavigation = true,
+            bottomState = BottomState.User
+        )
+    }
+
+    fun onActivitiesNavigation(): AppPartialViewState = { previousViewState ->
+        previousViewState.copy(
+            shouldShowBottomNavigation = true,
+            bottomState = BottomState.Activities
+        )
+    }
+
+    fun onSettingsNavigation(): AppPartialViewState = { previousViewState ->
+        previousViewState.copy(
+            shouldShowBottomNavigation = true,
+            bottomState = BottomState.Settings
+        )
+    }
 }

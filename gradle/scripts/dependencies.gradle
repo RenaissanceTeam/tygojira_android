@@ -44,6 +44,8 @@ ext {
             kotlinReflect                : ("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"),
             coroutinesTest               : ("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"),
             material                     : ("com.google.android.material:material:$material_version"),
+            calendar                     : ("com.github.kizitonwose:CalendarView:$calendar_version"),
+            threeTenAbp                  : ("com.jakewharton.threetenabp:threetenabp:$threeTenAbp_version"),
 
 
             // modules
@@ -51,6 +53,8 @@ ext {
             auth_api                     : project(":auth_api"),
             user                         : project(":user"),
             user_api                     : project(":user_api"),
+            activities                   : project(":activities"),
+            activities_api               : project(":activities_api"),
             network                      : project(":network"),
             navigation                   : project(":navigation"),
 

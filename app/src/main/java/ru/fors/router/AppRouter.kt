@@ -18,4 +18,16 @@ class AppRouter(
     override fun onAuthSuccess() {
         router.newRootScreen(Screens.Main)
     }
+
+    fun onActivities() {
+        router.newRootScreen(Screens.Activities)
+    }
+
+    fun onUser() {
+
+    }
+
+    fun onSettings() {
+
+    }
 }

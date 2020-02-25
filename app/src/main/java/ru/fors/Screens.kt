@@ -2,6 +2,7 @@ package ru.fors
 
 import androidx.fragment.app.Fragment
 import kotlinx.coroutines.InternalCoroutinesApi
+import ru.fors.activities.presentation.view.fragment.ActivitiesFragment
 import ru.fors.auth.presentation.view.fragment.AuthFragment
 import ru.fors.user.presentation.view.fragment.UserFragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen
@@ -20,5 +21,10 @@ object Screens {
     object Main: SupportAppScreen() {
         @InternalCoroutinesApi
         override fun getFragment(): Fragment = UserFragment()
+    }
+
+    object Activities: SupportAppScreen() {
+        @InternalCoroutinesApi
+        override fun getFragment(): Fragment = ActivitiesFragment()
     }
 }
