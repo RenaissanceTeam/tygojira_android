@@ -9,5 +9,11 @@
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textColorPrimary">@color/primaryText</item>
         <item name="android:textColorSecondary">@color/secondaryText</item>
+        <item name="android:itemBackground">@color/primaryText</item>
+    </style>
+    
+    <style name="AppToolbar" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:background">@color/primaryColorDark</item>
+        <item name="iconTint">@color/textColor</item>
     </style>
 </resources>

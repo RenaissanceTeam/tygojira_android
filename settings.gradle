@@ -1,2 +1,5 @@
-include ':app', ':auth_api', ':auth', ':network', ':utils', ':navigation', ':user', ':ui', ':user_api', ':activities', ':activities_api'
+include ':app', ':auth_api', ':auth', ':network', ':utils', ':navigation', ':user', ':ui', ':user_api', ':activities', ':activities_api', ':other'
 rootProject.name='fors'
+include ':settings_api'
+include ':employees'
+include ':employees_api'

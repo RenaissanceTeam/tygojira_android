@@ -55,6 +55,9 @@ ext {
             user_api                     : project(":user_api"),
             activities                   : project(":activities"),
             activities_api               : project(":activities_api"),
+            employees                    : project(":employees"),
+            employees_api                : project(":employees_api"),
+            other                        : project(":other"),
             network                      : project(":network"),
             navigation                   : project(":navigation"),
 

@@ -29,7 +29,7 @@ class UserViewModel(
 
     fun onUserRequired() {
         viewModelScope.launch {
-            val userEvent = userUseCase.invoke()
+            val userEvent = userUseCase()
             when(userEvent) {
                 is UserUseCase.UserEvent.NotExist -> stateRelay.postValue(UserPartialViewStates.onUserNotExist())
                 is UserUseCase.UserEvent.User -> stateRelay.postValue(UserPartialViewStates.onUserLoaded(userEvent.user))

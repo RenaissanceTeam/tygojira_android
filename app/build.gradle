@@ -6,6 +6,8 @@ dependencies {
     implementation library.auth
     implementation library.user
     implementation library.activities
+    implementation library.employees
+    implementation library.other
     implementation library.network
     implementation library.cicerone
     implementation library.navigation
