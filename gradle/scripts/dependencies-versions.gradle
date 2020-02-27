@@ -28,4 +28,5 @@ ext {
     material_version = "1.2.0-alpha04"
     calendar_version = "0.3.2"
     threeTenAbp_version = "1.2.2"
+    searchView_version = "1.4.0"
 }

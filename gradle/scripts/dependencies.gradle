@@ -46,6 +46,7 @@ ext {
             material                     : ("com.google.android.material:material:$material_version"),
             calendar                     : ("com.github.kizitonwose:CalendarView:$calendar_version"),
             threeTenAbp                  : ("com.jakewharton.threetenabp:threetenabp:$threeTenAbp_version"),
+            searchView                   : ("com.miguelcatalan:materialsearchview:$searchView_version"),
 
 
             // modules

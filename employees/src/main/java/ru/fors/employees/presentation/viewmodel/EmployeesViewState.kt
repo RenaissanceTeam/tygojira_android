@@ -7,5 +7,7 @@ import ru.fors.user.api.domain.dto.Employee
  */
 data class EmployeesViewState(
     val employees: List<Employee> = listOf(),
+    val showEmployees: List<Employee> = listOf(),
+    val query: String = "",
     val selectedEmployee: Employee? = null
 )

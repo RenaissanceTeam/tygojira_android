@@ -8,6 +8,7 @@ dependencies {
     implementation library.appCompat
     implementation library.ui
     implementation library.material
+    implementation library.searchView
     implementation library.constraintLayout
     implementation library.fragmentKtx
     implementation library.navigation
