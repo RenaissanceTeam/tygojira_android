@@ -39,4 +39,8 @@ class AppRouter(
     override fun navigateToEmployees() {
         router.navigateTo(Screens.Employees)
     }
+
+    fun onBack() {
+        router.exit()
+    }
 }

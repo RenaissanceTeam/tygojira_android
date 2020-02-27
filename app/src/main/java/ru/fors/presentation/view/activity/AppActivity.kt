@@ -115,7 +115,7 @@ class AppActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        currentFragment?.onBackPressed() ?: super.onBackPressed()
+        model.onBack()
     }
 
     override fun onDestroy() {

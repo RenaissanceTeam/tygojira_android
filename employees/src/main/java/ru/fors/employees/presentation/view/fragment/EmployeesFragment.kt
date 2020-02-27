@@ -45,6 +45,8 @@ class EmployeesFragment : BaseFragment(), EmployeesAdapter.Listener {
         super.onViewCreated(view, savedInstanceState)
 
         val item = employees_toolbar.menu.findItem(R.id.action_search)
+        employees_toolbar.setLogo(R.drawable.ic_fors_logo)
+        employees_toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
         search_view.setMenuItem(item)
         search_view.setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
@@ -57,6 +59,7 @@ class EmployeesFragment : BaseFragment(), EmployeesAdapter.Listener {
             }
         })
         adapter = EmployeesAdapter()
+        adapter.listener = this
         employees_list.apply {
             adapter = this@EmployeesFragment.adapter
             layoutManager = LinearLayoutManager(requireContext())
@@ -80,5 +83,10 @@ class EmployeesFragment : BaseFragment(), EmployeesAdapter.Listener {
             val fragment = EmployeeBottomSheetFragment.getInstance(employee)
             fragment.show(parentFragmentManager, "123")
         }
+    }
+
+    override fun onDestroyView() {
+        adapter.listener = null
+        super.onDestroyView()
     }
 }

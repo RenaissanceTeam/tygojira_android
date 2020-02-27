@@ -42,6 +42,7 @@ class EmployeesViewModel(
 
     fun onEmployeeSelected(position: Int) {
         stateRelay.postValue(EmployeesPartialViewStates.onEmployeeSelected(position))
+        stateRelay.postValue(EmployeesPartialViewStates.onResetSelectedEmployee())
     }
 
     fun onQueryTextChanged(text: String) {

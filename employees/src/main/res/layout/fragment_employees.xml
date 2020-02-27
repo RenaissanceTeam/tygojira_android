@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppToolbar"
+        app:navigationIcon="@drawable/ic_action_navigation_arrow_back_inverted"
         app:menu="@menu/menu_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
