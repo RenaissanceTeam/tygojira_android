@@ -127,7 +127,7 @@ class AppActivity : AppCompatActivity() {
         override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
             super.onFragmentResumed(fm, f)
             val fragment = (f as? BaseFragment)
-                ?: throw IllegalArgumentException("All fragments have to extend BaseFragment")
+                ?: return
             val shouldShow = fragment.shouldShowNavigationBar
             model.onScreenShown(shouldShow)
         }

@@ -42,6 +42,9 @@ class EmployeesViewModel(
 
     fun onEmployeeSelected(position: Int) {
         stateRelay.postValue(EmployeesPartialViewStates.onEmployeeSelected(position))
+    }
+
+    fun onResetSelection() {
         stateRelay.postValue(EmployeesPartialViewStates.onResetSelectedEmployee())
     }
 

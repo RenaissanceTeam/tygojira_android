@@ -83,6 +83,7 @@ class EmployeesFragment : BaseFragment(), EmployeesAdapter.Listener {
             val fragment = EmployeeBottomSheetFragment.getInstance(employee)
             fragment.show(parentFragmentManager, "123")
         }
+        model.onResetSelection()
     }
 
     override fun onDestroyView() {
