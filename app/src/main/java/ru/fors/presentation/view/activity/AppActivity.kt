@@ -2,6 +2,7 @@ package ru.fors.presentation.view.activity
 
 import android.graphics.Rect
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.view.doOnApplyWindowInsets
 import androidx.appcompat.app.AppCompatActivity
@@ -114,7 +115,7 @@ class AppActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        currentFragment?.onBackPressed() ?: super.onBackPressed()
+        model.onBack()
     }
 
     override fun onDestroy() {
@@ -126,7 +127,7 @@ class AppActivity : AppCompatActivity() {
         override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
             super.onFragmentResumed(fm, f)
             val fragment = (f as? BaseFragment)
-                ?: throw IllegalArgumentException("All fragments have to extend BaseFragment")
+                ?: return
             val shouldShow = fragment.shouldShowNavigationBar
             model.onScreenShown(shouldShow)
         }

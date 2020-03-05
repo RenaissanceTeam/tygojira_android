@@ -11,5 +11,5 @@ data class Employee(
     val position: String,
     val skills: List<String>,
     val subdivision: String,
-    val workRoles: List<String>
+    val workRoles: List<String> = listOf()
 )

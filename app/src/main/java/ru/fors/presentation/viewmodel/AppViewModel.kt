@@ -48,4 +48,8 @@ class AppViewModel constructor(
         stateRelay.postValue(AppPartialViewStates.onSettingsNavigation())
         router.onSettings()
     }
+
+    fun onBack() {
+        router.onBack()
+    }
 }

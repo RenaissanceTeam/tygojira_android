@@ -10,7 +10,9 @@ import org.koin.core.context.startKoin
 import ru.fors.activities.di.activitiesModule
 import ru.fors.auth.di.authModule
 import ru.fors.di.routerModule
+import ru.fors.employees.di.employeesModule
 import ru.fors.network.di.networkModule
+import ru.fors.other.di.otherModule
 import ru.fors.user.di.userModule
 import ru.terrakok.cicerone.Cicerone
 
@@ -30,11 +32,13 @@ class App : Application() {
                     networkModule,
                     userModule,
                     activitiesModule,
+                    otherModule,
+                    employeesModule,
                     routerModule
                 )
             )
         }
 
-        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+//        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
     }
 }
