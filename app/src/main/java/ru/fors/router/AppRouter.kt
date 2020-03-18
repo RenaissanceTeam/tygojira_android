@@ -25,7 +25,7 @@ class AppRouter(
     }
 
     fun onUser() {
-
+        router.newRootScreen(Screens.User)
     }
 
     fun onSettings() {

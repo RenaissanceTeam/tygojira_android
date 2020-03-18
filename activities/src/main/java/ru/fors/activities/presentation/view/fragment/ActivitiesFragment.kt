@@ -101,7 +101,7 @@ class ActivitiesFragment : BaseFragment() {
         val wm = requireContext().getSystemService(Context.WINDOW_SERVICE) as WindowManager
         wm.defaultDisplay.getMetrics(dm)
         activities_calendar.dayWidth = dm.widthPixels / 7
-        activities_calendar.dayHeight = dm.widthPixels / 4
+        activities_calendar.dayHeight = dm.heightPixels / 11
 
         val currentMonth = YearMonth.now()
         val firstMonth = currentMonth.minusMonths(10)
@@ -124,7 +124,7 @@ class ActivitiesFragment : BaseFragment() {
     }
 
     private fun updateState(state: ActivitiesViewState) {
-        val b = state.activities.map(Activity::id)
+        val b = state.activities.map(ru.fors.activities.api.domain.dto.Workload::workloadId)
         // Мапа id -> цвет
         val c = mutableMapOf<Long, Int>()
         b.forEachIndexed { index, id ->
@@ -134,33 +134,31 @@ class ActivitiesFragment : BaseFragment() {
         val activitiesViewData = mutableListOf<ActivitiesViewData>()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         state.activities.forEachIndexed { index, activity ->
-            val start = LocalDate.parse(activity.startDate, formatter)
-            val end = LocalDate.parse(activity.endDate)
+            val start = LocalDate.parse(activity.activity.startDate, formatter)
+            val end = LocalDate.parse(activity.activity.endDate)
             var day = LocalDate.from(start)
-            val color = c[activity.id]!!
+            val color = c[activity.workloadId]!!
             val range = start.rangeTo(end)
             while (day in range) {
-                if (!a.containsKey(day)) a[day] = mutableListOf(
-                    Workload(transparentColor, null),
-                    Workload(transparentColor, null),
-                    Workload(transparentColor, null),
-                    Workload(transparentColor, null),
-                    Workload(transparentColor, null),
-                    Workload(transparentColor, null),
-                    Workload(transparentColor, null)
-                )
+                if (!a.containsKey(day)) a[day] = mutableListOf()
+
+                day = day.plusDays(1)
+            }
+
+            activity.workUnits.forEach { workUnit ->
+                val date = LocalDate.parse(workUnit.date)
+
                 val workload = Workload(
                     color,
-                    if (day == start) activity.name else null
+                    activity.activity.name
                 )
-                a[day]?.set(index, workload)
-                day = day.plusDays(1)
+                a[date]?.add(workload)
             }
 
             state.date?.let { selectedDate ->
                 if (selectedDate in range) {
                     val data = ActivitiesViewData(
-                        title = activity.name,
+                        title = activity.activity.name,
                         color = color,
                         period = range
                     )
@@ -168,7 +166,7 @@ class ActivitiesFragment : BaseFragment() {
                 }
             } ?: run {
                 val data = ActivitiesViewData(
-                    title = activity.name,
+                    title = activity.activity.name,
                     color = color,
                     period = range
                 )

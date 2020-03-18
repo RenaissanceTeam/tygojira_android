@@ -28,7 +28,7 @@ class RetrofitUserRepository(
         .build()
         .create(RetrofitUserApi::class.java)
 
-    override suspend fun getUser(username: String): Employee = userApi.login(username).employee
+    override suspend fun getUser(): Employee = userApi.profile()
 }
 
 class UserInterceptor(

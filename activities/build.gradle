@@ -15,6 +15,7 @@ dependencies {
     implementation library.lifecycleViewModel
     implementation library.lifecycleLivedata
     implementation library.auth_api
+    implementation library.user_api
     implementation library.activities_api
     implementation library.coroutinesCore
     implementation library.koinViewModel

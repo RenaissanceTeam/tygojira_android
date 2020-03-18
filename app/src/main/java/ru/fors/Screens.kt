@@ -25,6 +25,11 @@ object Screens {
         override fun getFragment(): Fragment = UserFragment()
     }
 
+    object User: SupportAppScreen() {
+        @InternalCoroutinesApi
+        override fun getFragment(): Fragment = UserFragment()
+    }
+
     object Activities: SupportAppScreen() {
         @InternalCoroutinesApi
         override fun getFragment(): Fragment = ActivitiesFragment()
@@ -36,6 +41,11 @@ object Screens {
     }
 
     object Employees: SupportAppScreen() {
+        @InternalCoroutinesApi
+        override fun getFragment(): Fragment = EmployeesFragment()
+    }
+
+    object Settings: SupportAppScreen() {
         @InternalCoroutinesApi
         override fun getFragment(): Fragment = EmployeesFragment()
     }

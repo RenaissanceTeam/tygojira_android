@@ -2,6 +2,7 @@ package ru.fors.activities.presentation.viewmodel
 
 import org.threeten.bp.LocalDate
 import ru.fors.activities.api.domain.dto.Activity
+import ru.fors.activities.api.domain.dto.Workload
 
 /**
  * Created by 23alot on 23.02.2020.
@@ -18,7 +19,7 @@ object UserPartialViewStates {
         previousViewState.copy()
     }
 
-    fun onActivitiesLoaded(activities: List<Activity>): ActivitiesPartialViewState = { previousViewState ->
+    fun onActivitiesLoaded(activities: List<Workload>): ActivitiesPartialViewState = { previousViewState ->
         previousViewState.copy(
             activities = activities
         )
