@@ -7,5 +7,5 @@ import ru.fors.user.api.domain.dto.Employee
  */
 interface UserRepository {
 
-    suspend fun getUser(username: String): Employee
+    suspend fun getUser(): Employee
 }

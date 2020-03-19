@@ -7,6 +7,8 @@ import okhttp3.Response
 import retrofit2.Retrofit
 import ru.fors.activities.api.data.ActivitiesRepository
 import ru.fors.activities.api.domain.dto.Activity
+import ru.fors.activities.api.domain.dto.LeadItem
+import ru.fors.activities.api.domain.dto.Workload
 import ru.fors.activities.data.framework.RetrofitActivitiesApi
 import ru.fors.auth.api.data.TokenRepository
 
@@ -28,36 +30,8 @@ class RetrofitActivitiesRepository(
         .build()
         .create(RetrofitActivitiesApi::class.java)
 
-    private val mock = listOf<Activity>(
-        Activity(
-            id = 0,
-            name = "test1",
-            startDate = "2020-02-12",
-            endDate = "2020-02-27"
-        ),
-        Activity(
-            id = 1,
-            name = "test2",
-            startDate = "2020-02-13",
-            endDate = "2020-02-28"
-        ),
-        Activity(
-            id = 2,
-            name = "test3",
-            startDate = "2020-02-10",
-            endDate = "2020-02-27"
-        ),
-        Activity(
-            id = 3,
-            name = "test4",
-            startDate = "2020-02-08",
-            endDate = "2020-02-29"
-        )
-    )
+    override suspend fun getActivities(id: Long): List<Workload> = activitiesApi.workloads(id).workloads
 
-    override suspend fun getActivities(): List<Activity> {
-        return mock
-    }
 }
 
 class ActivitiesInterceptor(

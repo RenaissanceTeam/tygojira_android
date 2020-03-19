@@ -30,7 +30,7 @@ class ActivitiesViewModel(
 
     fun onActivitiesRequired() {
         viewModelScope.launch {
-            val activitiesEvent = activitiesUseCase.invoke()
+            val activitiesEvent = activitiesUseCase()
             when(activitiesEvent) {
                 is ActivitiesUseCase.ActivitiesEvent.NotExist -> stateRelay.postValue(UserPartialViewStates.onActivitiesNotExist())
                 is ActivitiesUseCase.ActivitiesEvent.Activities -> stateRelay.postValue(UserPartialViewStates.onActivitiesLoaded(activitiesEvent.activities))
