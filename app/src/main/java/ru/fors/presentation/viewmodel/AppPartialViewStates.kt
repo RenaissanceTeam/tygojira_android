@@ -9,34 +9,45 @@ object AppPartialViewStates {
 
     fun login(): AppPartialViewState = { previousViewState ->
         previousViewState.copy(
-            shouldShowBottomNavigation = false
+            shouldShowBottomNavigation = false,
+            theme = Theme.DEFAULT
         )
     }
 
     fun onScreenShow(shouldShowNavigationBar: Boolean): AppPartialViewState = { previousViewState ->
         previousViewState.copy(
-            shouldShowBottomNavigation = shouldShowNavigationBar
+            shouldShowBottomNavigation = shouldShowNavigationBar,
+            theme = Theme.DEFAULT
         )
     }
 
     fun onUserNavigation(): AppPartialViewState = { previousViewState ->
         previousViewState.copy(
             shouldShowBottomNavigation = true,
-            bottomState = BottomState.User
+            bottomState = BottomState.User,
+            theme = Theme.DEFAULT
         )
     }
 
     fun onActivitiesNavigation(): AppPartialViewState = { previousViewState ->
         previousViewState.copy(
             shouldShowBottomNavigation = true,
-            bottomState = BottomState.Activities
+            bottomState = BottomState.Activities,
+            theme = Theme.DEFAULT
         )
     }
 
     fun onSettingsNavigation(): AppPartialViewState = { previousViewState ->
         previousViewState.copy(
             shouldShowBottomNavigation = true,
-            bottomState = BottomState.Settings
+            bottomState = BottomState.Settings,
+            theme = Theme.DEFAULT
+        )
+    }
+
+    fun onDarkModeChanged(isDarkMode: Boolean): AppPartialViewState = { previousViewState ->
+        previousViewState.copy(
+            theme = if (isDarkMode) Theme.DARK else Theme.LIGHT
         )
     }
 }

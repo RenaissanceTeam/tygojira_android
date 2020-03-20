@@ -29,4 +29,5 @@ ext {
     calendar_version = "0.3.2"
     threeTenAbp_version = "1.2.2"
     searchView_version = "1.4.0"
+    preferences_version = "1.1.0"
 }

@@ -11,8 +11,10 @@ import ru.fors.auth.api.domain.SignInUseCase
 import ru.fors.auth.data.repository.RealtimeTokenRepository
 import ru.fors.auth.api.data.AuthRepository
 import ru.fors.auth.api.data.UsernameRepository
+import ru.fors.auth.api.domain.LogoutUseCase
 import ru.fors.auth.data.repository.RealtimeUsernameRepository
 import ru.fors.auth.data.repository.auth.RetrofitAuthRepository
+import ru.fors.auth.domain.LogoutUseCaseImpl
 import ru.fors.auth.domain.SignInUseCaseImpl
 import ru.fors.auth.presentation.view.fragment.AuthFragment
 import ru.fors.auth.presentation.viewmodel.AuthViewModel
@@ -29,6 +31,7 @@ val authModule = module {
         viewModel { AuthViewModel(get(), get()) }
     }
 
+    singleBy<LogoutUseCase, LogoutUseCaseImpl>()
     singleBy<AuthRepository, RetrofitAuthRepository>()
     singleBy<UsernameRepository, RealtimeUsernameRepository>()
     singleBy<TokenRepository, RealtimeTokenRepository>()

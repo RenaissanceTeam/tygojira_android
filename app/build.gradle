@@ -7,6 +7,8 @@ dependencies {
     implementation library.user
     implementation library.activities
     implementation library.employees
+    implementation library.settings
+    implementation library.settings_api
     implementation library.other
     implementation library.network
     implementation library.cicerone

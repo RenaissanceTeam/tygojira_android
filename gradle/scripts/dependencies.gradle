@@ -47,6 +47,8 @@ ext {
             calendar                     : ("com.github.kizitonwose:CalendarView:$calendar_version"),
             threeTenAbp                  : ("com.jakewharton.threetenabp:threetenabp:$threeTenAbp_version"),
             searchView                   : ("com.miguelcatalan:materialsearchview:$searchView_version"),
+            preferences                  : ("androidx.preference:preference:$preferences_version"),
+            preferencesKtx                  : ("androidx.preference:preference-ktx:$preferences_version"),
 
 
             // modules
@@ -58,6 +60,8 @@ ext {
             activities_api               : project(":activities_api"),
             employees                    : project(":employees"),
             employees_api                : project(":employees_api"),
+            settings                     : project(":settings"),
+            settings_api                 : project(":settings_api"),
             other                        : project(":other"),
             network                      : project(":network"),
             navigation                   : project(":navigation"),

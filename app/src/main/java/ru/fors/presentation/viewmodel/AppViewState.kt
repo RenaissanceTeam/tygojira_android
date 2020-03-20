@@ -5,9 +5,14 @@ package ru.fors.presentation.viewmodel
  */
 data class AppViewState(
     val shouldShowBottomNavigation: Boolean = false,
-    val bottomState: BottomState = BottomState.User
+    val bottomState: BottomState = BottomState.User,
+    val theme: Theme = Theme.DEFAULT
 )
 
 enum class BottomState {
     User, Activities, Settings
+}
+
+enum class Theme {
+    DARK, LIGHT, DEFAULT
 }

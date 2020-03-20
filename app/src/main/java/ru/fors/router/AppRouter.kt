@@ -3,6 +3,7 @@ package ru.fors.router
 import ru.fors.Screens
 import ru.fors.auth.router.AuthRouter
 import ru.fors.other.router.OtherRouter
+import ru.fors.settings.router.SettingsRouter
 import ru.terrakok.cicerone.Router
 
 /**
@@ -10,7 +11,7 @@ import ru.terrakok.cicerone.Router
  */
 class AppRouter(
     private val router: Router
-) : AuthRouter, OtherRouter {
+) : AuthRouter, OtherRouter, SettingsRouter {
 
     fun onAuthStart() {
         router.newRootScreen(Screens.Auth)
@@ -33,11 +34,15 @@ class AppRouter(
     }
 
     override fun navigateToSettings() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        router.navigateTo(Screens.Settings)
     }
 
     override fun navigateToEmployees() {
         router.navigateTo(Screens.Employees)
+    }
+
+    override fun onLogout() {
+        router.newRootScreen(Screens.Auth)
     }
 
     fun onBack() {

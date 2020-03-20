@@ -6,6 +6,9 @@ import android.view.Menu
 import android.view.View
 import android.view.doOnApplyWindowInsets
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -18,8 +21,10 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import ru.fors.R
 import ru.fors.navigation.ui.BaseFragment
+import ru.fors.navigation.ui.BasePreferenceFragment
 import ru.fors.presentation.viewmodel.AppViewModel
 import ru.fors.presentation.viewmodel.AppViewState
+import ru.fors.presentation.viewmodel.Theme
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
@@ -79,7 +84,9 @@ class AppActivity : AppCompatActivity() {
                 .collect { updateState(it) }
         }
 
-        model.startAuthFlow()
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.container)
+        model.observeDarkModeChanges()
+        currentFragment ?: model.startAuthFlow()
 
     }
 
@@ -102,6 +109,12 @@ class AppActivity : AppCompatActivity() {
             } else {
                 View.GONE
             }
+
+        when(state.theme) {
+            Theme.DARK -> AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+            Theme.LIGHT -> AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+        }
+
     }
 
     override fun onResumeFragments() {
@@ -126,9 +139,7 @@ class AppActivity : AppCompatActivity() {
     inner class LifecycleCallbacks : FragmentManager.FragmentLifecycleCallbacks() {
         override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
             super.onFragmentResumed(fm, f)
-            val fragment = (f as? BaseFragment)
-                ?: return
-            val shouldShow = fragment.shouldShowNavigationBar
+            val shouldShow = (f as? BaseFragment)?.shouldShowNavigationBar ?: (f as? BasePreferenceFragment)?.shouldShowNavigationBar ?: return
             model.onScreenShown(shouldShow)
         }
     }
