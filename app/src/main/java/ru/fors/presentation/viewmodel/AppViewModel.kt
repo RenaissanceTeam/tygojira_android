@@ -25,8 +25,10 @@ class AppViewModel constructor(
 
     @ExperimentalCoroutinesApi
     val state = stateRelay.asFlow()
-        .scan(AppViewState()) { state, partial -> partial(state) }
         .distinctUntilChanged()
+        .scan(AppViewState()) { state, partial ->
+            partial(state)
+        }
         .flowOn(Dispatchers.Main)
 
     fun observeDarkModeChanges() {

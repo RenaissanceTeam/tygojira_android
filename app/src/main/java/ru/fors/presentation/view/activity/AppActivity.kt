@@ -85,8 +85,8 @@ class AppActivity : AppCompatActivity() {
         }
 
         val currentFragment = supportFragmentManager.findFragmentById(R.id.container)
-        model.observeDarkModeChanges()
         currentFragment ?: model.startAuthFlow()
+        model.observeDarkModeChanges()
 
     }
 
