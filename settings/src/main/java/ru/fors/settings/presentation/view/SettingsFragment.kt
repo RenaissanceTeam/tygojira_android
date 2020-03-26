@@ -36,7 +36,6 @@ class SettingsFragment : BasePreferenceFragment() {
 
         view.findViewById<Toolbar>(R.id.settings_toolbar).apply {
             setTitle(R.string.settings)
-            setNavigationIcon(R.drawable.ic_arrow_back)
             setNavigationOnClickListener {
                 requireActivity().onBackPressed()
             }
