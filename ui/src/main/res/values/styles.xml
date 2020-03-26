@@ -21,6 +21,16 @@
         <item name="iconTint">@color/textColor</item>
     </style>
 
+    <style name="AppPreference" parent="AppTheme">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="colorAccent">@color/accentColor</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorPrimary">@color/primaryText</item>
+        <item name="android:textColorSecondary">@color/secondaryText</item>
+        <item name="android:itemBackground">@color/primaryText</item>
+    </style>
+
     <style name="MaterialSearchViewStyle">
         <!-- Background for the search bar -->
         <item name="searchBackground">@color/primaryColorDark</item>
