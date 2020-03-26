@@ -9,4 +9,5 @@ dependencies {
     implementation library.utils
     implementation library.ui
     implementation library.material
+    api library.preferences
 }

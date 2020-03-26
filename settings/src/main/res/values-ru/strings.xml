@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dark_mode">Темная тема</string>
+    <string name="logout">Выйти</string>
+    <string name="settings">Настройки</string>
+</resources>

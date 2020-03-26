@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply from: "$rootDir/gradle/scripts/android-module.gradle"
+
+dependencies {
+    implementation library.coroutinesCore
+    implementation library.settings_api
+    implementation library.auth_api
+    implementation library.appCompat
+    implementation library.lifecycleLivedata
+    implementation library.koinViewModel
+    implementation groups.koinWithExt
+    implementation library.fragmentKtx
+    implementation library.lifecycleExtensions
+    implementation library.lifecycleViewModel
+    implementation library.cicerone
+    implementation library.navigation
+    implementation library.preferences
+    implementation library.preferencesKtx
+}

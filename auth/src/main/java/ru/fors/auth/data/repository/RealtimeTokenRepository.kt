@@ -17,4 +17,8 @@ class RealtimeTokenRepository : TokenRepository {
         this.token = token
     }
 
+    override suspend fun discard() {
+        token = null
+    }
+
 }

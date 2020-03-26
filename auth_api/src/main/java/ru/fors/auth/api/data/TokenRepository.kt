@@ -9,4 +9,6 @@ interface TokenRepository {
 
     suspend fun setToken(token: String)
 
+    suspend fun discard()
+
 }
