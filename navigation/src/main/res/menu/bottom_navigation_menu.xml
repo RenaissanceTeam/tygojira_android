@@ -14,9 +14,9 @@
         android:title="@string/bottom_navigation_company"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_other"
         android:enabled="true"
-        android:icon="@drawable/ic_settings"
+        android:icon="@drawable/ic_other"
         android:title="@string/bottom_navigation_settings"
         app:showAsAction="ifRoom" />
 </menu>
