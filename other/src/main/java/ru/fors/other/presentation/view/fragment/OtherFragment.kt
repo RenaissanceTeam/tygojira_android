@@ -5,6 +5,7 @@ import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.fragment_other.*
 import org.koin.android.scope.currentScope
+import org.koin.android.viewmodel.ext.android.getViewModel
 import ru.fors.navigation.ui.BaseFragment
 import ru.fors.other.R
 import ru.fors.other.presentation.viewmodel.OtherViewModel
@@ -14,7 +15,7 @@ import ru.fors.other.presentation.viewmodel.OtherViewModel
  */
 class OtherFragment : BaseFragment() {
 
-    private val model: OtherViewModel by currentScope.inject()
+    private lateinit var model: OtherViewModel
 
     override val layoutRes: Int
         get() = R.layout.fragment_other
@@ -24,6 +25,7 @@ class OtherFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        model = currentScope.getViewModel<OtherViewModel>(this)
 
         activities_toolbar.setLogo(R.drawable.ic_fors_logo)
 

@@ -8,4 +8,5 @@
     <color name="primaryText">#EEEEEE</color>
     <color name="secondaryText">#BCAAA4</color>
     <color name="dividerColor">#78909C</color>
+    <color name="toolbarTextColor">#E0E0E0</color>
 </resources>

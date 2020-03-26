@@ -18,7 +18,13 @@
     
     <style name="AppToolbar" parent="Theme.MaterialComponents.DayNight">
         <item name="android:background">@color/primaryColorDark</item>
-        <item name="iconTint">@color/textColor</item>
+        <item name="iconTint">@color/toolbarTextColor</item>
+        <item name="android:textColorPrimary">@color/toolbarTextColor</item>
+        <item name="toolbarNavigationButtonStyle">@style/TintedNavigation</item>
+    </style>
+
+    <style name="TintedNavigation" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/toolbarTextColor</item>
     </style>
 
     <style name="AppPreference" parent="AppTheme">

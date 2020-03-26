@@ -2,7 +2,6 @@ package ru.fors.presentation.view.activity
 
 import android.graphics.Rect
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import android.view.doOnApplyWindowInsets
 import androidx.appcompat.app.AppCompatActivity
@@ -96,7 +95,7 @@ class AppActivity : AppCompatActivity() {
             when(id) {
                 R.id.action_user -> model.onUserNavigation()
                 R.id.action_activities -> model.onActivitiesNavigation()
-                R.id.action_settings -> model.onSettingsNavigation()
+                R.id.action_other -> model.onSettingsNavigation()
             }
             true
         }
